@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invito Ufficiale - 18° Compleanno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="page-center">
+  <canvas id="confetti-canvas"></canvas>
+
+  <main class="letter-card" id="letter-card">
+    <div class="letter-header">
+      <span class="letter-number">18</span>
+      <span class="letter-tag">FESTA DI COMPLEANNO</span>
+    </div>
+
+    <h1 class="guest-name" id="guest-name">Caricamento invito...</h1>
+
+    <p class="letter-intro">
+      Il grande giorno sta arrivando ed è impossibile festeggiare senza di te. Sei ufficialmente invitato al mio diciottesimo compleanno!
+    </p>
+
+    <div class="deadline-banner" id="deadline-banner">
+      ⏳ Conferma entro il <strong id="deadline-text">10 Giugno 2026</strong> (oltre tale data la partecipazione sarà considerata nulla)
+    </div>
+
+    <!-- Riquadro dettagli festa (oscurato finché non accetta) -->
+    <div class="details-wrapper">
+      <div class="event-details blurred" id="event-details">
+        <div class="detail-row">
+          <span class="detail-icon">📅</span>
+          <span><strong>Data:</strong> 20 Giugno 2026</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-icon">⏰</span>
+          <span><strong>Ore:</strong> 20:30</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-icon">📍</span>
+          <span><strong>Luogo:</strong> Villa dei Sogni, Roma</span>
+        </div>
+      </div>
+      <p class="blur-hint" id="blur-hint">* Conferma con "Sì, ci sarò!" per sbloccare data e luogo.</p>
+    </div>
+
+    <!-- Messaggio di stato risposta -->
+    <div class="status-feedback hidden" id="status-feedback"></div>
+
+    <!-- Pulsanti RSVP -->
+    <div class="rsvp-section" id="rsvp-section">
+      <p class="rsvp-prompt">Conferma la tua presenza:</p>
+      <div class="rsvp-buttons">
+        <button class="btn-accept" id="btn-yes">SÌ, CI SARÒ! 🥂</button>
+        <button class="btn-decline" id="btn-no">NO, NON POSSO 😔</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/Lettera.js"></script>
+</body>
+</html>

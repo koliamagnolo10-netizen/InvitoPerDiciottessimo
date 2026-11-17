@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sei Invitato - 18° Compleanno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page-center">
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="envelope-stage">
+    <div class="envelope" id="envelope">
+      <div class="envelope-back"></div>
+
+      <!-- Biglietto interno (visibile solo quando la busta si apre) -->
+      <div class="envelope-card-preview">
+        <span class="gold-label">18° COMPLEANNO</span>
+      </div>
+
+      <div class="envelope-left"></div>
+      <div class="envelope-right"></div>
+      <div class="envelope-bottom"></div>
+      <div class="envelope-flap" id="envelope-flap"></div>
+
+      <!-- Fronte della busta -->
+      <div class="envelope-front-content" id="envelope-content">
+        <span class="envelope-subtitle">SEI INVITATO</span>
+        <h1 class="envelope-title">18° COMPLEANNO</h1>
+
+        <!-- Sigillo in ceralacca con bordo organico -->
+        <button class="wax-seal" id="open-seal" aria-label="Apri invito">
+          <div class="wax-ring">
+            <span>18</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

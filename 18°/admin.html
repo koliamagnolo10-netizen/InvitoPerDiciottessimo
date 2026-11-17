@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pannello Gestione Invitati - 18°</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="admin-body">
+  <div class="admin-container">
+    <!-- Header -->
+    <header class="admin-header">
+      <div>
+        <h1 class="admin-title">Pannello Gestione Invitati</h1>
+        <p class="admin-subtitle">Aggiungi gli ospiti per categoria e gestisci i link personalizzati</p>
+      </div>
+      <div class="connection-badge" id="connection-status">
+        <span class="status-dot"></span> Connessione...
+      </div>
+    </header>
+
+    <!-- Sezione Aggiungi Nuovo Invitato -->
+    <section class="admin-panel">
+      <h2 class="panel-heading">Aggiungi Nuovo Invitato</h2>
+      <form id="add-guest-form" class="add-guest-form">
+        <div class="form-row">
+          <input type="text" id="input-nome" class="admin-input" placeholder="Nome" required />
+          <input type="text" id="input-cognome" class="admin-input" placeholder="Cognome" required />
+          
+          <select id="select-categoria" class="admin-select" required>
+            <option value="Amici">Amici 🎉</option>
+            <option value="Amici Scuola">Amici Scuola 🎒</option>
+            <option value="Amici Doposcuola">Amici Doposcuola 📚</option>
+            <option value="Amici Piscina">Amici Piscina 🏊</option>
+            <option value="Famiglia">Famiglia 🏠</option>
+            <option value="Parenti">Parenti 🥂</option>
+            <option value="Conoscenti">Conoscenti 👋</option>
+          </select>
+
+          <!-- Selettore Adulto / Ragazzo -->
+          <div class="age-selector" role="group" aria-label="Fascia d'età">
+            <input type="radio" name="eta" id="eta-ragazzo" value="Ragazzo" checked />
+            <label for="eta-ragazzo">Ragazzo 🧑</label>
+
+            <input type="radio" name="eta" id="eta-adulto" value="Adulto" />
+            <label for="eta-adulto">Adulto 👔</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-generate" id="btn-submit">
+          Genera e Salva Invito 🎫
+        </button>
+      </form>
+    </section>
+
+    <!-- Sezione Lista Invitati -->
+    <section class="admin-panel">
+      <div class="list-header">
+        <h2 class="panel-heading" style="margin: 0;">Lista Invitati</h2>
+        <div class="list-actions-top">
+          <span class="count-pill" id="total-count">0 Invitati</span>
+          <button type="button" class="btn-stats-toggle" id="btn-toggle-stats">
+            📊 Riepilogo Partecipanti
+          </button>
+        </div>
+      </div>
+
+      <!-- Riepilogo Partecipanti a scomparsa -->
+      <div class="stats-drawer hidden" id="stats-drawer">
+        <div class="stat-box">
+          <span class="stat-label">Confermati (Sì)</span>
+          <span class="stat-val text-green" id="stat-si">0</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Non vengono (No)</span>
+          <span class="stat-val text-red" id="stat-no">0</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">In attesa</span>
+          <span class="stat-val text-gold" id="stat-attesa">0</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Adulti (Tot / Sì)</span>
+          <span class="stat-val" id="stat-adulti">0 / 0</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Ragazzi (Tot / Sì)</span>
+          <span class="stat-val" id="stat-ragazzi">0 / 0</span>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="guests-table">
+          <thead>
+            <tr>
+              <th>NOME E COGNOME</th>
+              <th>CATEGORIA</th>
+              <th>ETÀ</th>
+              <th>STATO RISPOSTA</th>
+              <th style="text-align: right;">AZIONI</th>
+            </tr>
+          </thead>
+          <tbody id="guests-tbody">
+            <tr>
+              <td colspan="5" class="empty-row">Caricamento invitati in corso...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast">Link copiato negli appunti!</div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
